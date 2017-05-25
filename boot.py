@@ -1,4 +1,6 @@
 import network
+
+#Connect to wifi network and also set adhoc wifi for debuging
 sta_if = network.WLAN(network.STA_IF)
 if not sta_if.isconnected():
     print('connecting to network...')
