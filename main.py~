@@ -8,17 +8,17 @@ webrepl.start()
 #HTML to send to browsers
 html = """<!DOCTYPE html>
 <html>
-<head> <title>ESP8266 Garage Door  </title> </head>
+<head> <title>ESP8266 LED ON/OFF</title> </head>
 <center><h2>Garage Door Opener</h2></center>
 <form>
-GD0:
-<button name="Garage Toggle" value="OFF0" type="submit">Open Garage Door</button><br><br>
+LED0:
+<button name="LED" value="OFF0" type="submit">Open Garage Door</button><br><br>
 </form>
 </html>
 """
 
 #Setup PINS
-GD0 = machine.Pin(5, machine.Pin.OUT)
+LED0 = machine.Pin(5, machine.Pin.OUT)
 
 #Setup Socket WebServer
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -30,10 +30,10 @@ while True:
     request = conn.recv(1024)
     print("Content = %s" % str(request))
     request = str(request)
-    GDOFF0 = request.find('/?GD=OFF0')
-    if GDOFF0 == 6:
-        print('TURN GD0 OFF')
-        GD0.value(not GD0.value()) # toggle
+    LEDOFF0 = request.find('/?LED=OFF0')
+    if LEDOFF0 == 6:
+        print('TURN LED0 OFF')
+        LED0.value(not LED0.value()) # toggle
         time.sleep(1)
     response = html
     conn.send(response)
