@@ -4,7 +4,12 @@ import webrepl
 import time
 import network
 
-#webrepl.start()
+net = network.WLAN(network.STA_IF)
+if net.isconnected():
+    print("starting webrepl")
+    webrepl.start()
+else:
+    print("no network for werepl to connect to")
 
 #HTML to send to browsers
 html = """<!DOCTYPE html>
