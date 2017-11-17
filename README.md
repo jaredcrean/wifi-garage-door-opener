@@ -26,6 +26,6 @@ MicroPython https://github.com/micropython/micropython
 ### Upload the boot.py and the main.py
 
 - I like to use the WebREPL website makes in easy http://micropython.org/webrepl/.
-- now upload the boo.py and the main.py.
+- now upload the boot.py and the main.py.
 - once that completes you should be able to trigger the relay with a HTTP PUT. `curl -X PUT http://<IPADDRESS>:\?Open-Close\=OFF0`
 
